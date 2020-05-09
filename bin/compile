@@ -96,10 +96,7 @@ for DEB in $(ls -1 $APT_CACHE_DIR/archives/*.deb); do
   topic "Installing $(basename $DEB)"
   dpkg -x $DEB $BUILD_DIR/.apt/
 done
-topic "Installing VIM"
-mkdir vim
-curl https://s3.amazonaws.com/heroku-vim/vim-7.3.tar.gz --location --silent | tar xz -C vim
-export PATH=$PATH:/app/vim/bin
+
 topic "My changes"
 cp -r /app/.apt/usr/share /app/.apt
 export TEXMFROOT=/app/.apt/share/texlive
